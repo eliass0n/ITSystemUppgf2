@@ -24,7 +24,6 @@ import java.util.concurrent.TimeoutException;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byId;
-import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -83,7 +82,7 @@ public class Tenta {
             // Fill in the login form
             $(byId("login_username")).shouldBe(visible).setValue(username);
             $(byId("login_password")).shouldBe(visible).setValue(password);
-            getWebDriver().switchTo().activeElement().sendKeys(Keys.ENTER);
+            $("#login_button").pressEnter();
             logger.info("Loggar in");
 
             $x("//html/body/div[1]/div[2]/div/div/ul/li[9]/a/em/b").click();
